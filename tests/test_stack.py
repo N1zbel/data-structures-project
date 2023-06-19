@@ -1,1 +1,12 @@
-"""Здесь надо написать тесты с использованием unittest для модуля stack."""
+from src.stack import Stack
+
+
+stack = Stack()
+stack.push('data1')
+stack.push('data2')
+stack.push('data3')
+
+def test_push():
+    assert stack.top.data == 'data3'
+    assert stack.top.next_node.data == 'data2'
+
