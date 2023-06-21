@@ -10,3 +10,5 @@ def test_push():
     assert stack.top.data == 'data3'
     assert stack.top.next_node.data == 'data2'
 
+def test_pop():
+    assert stack.pop() == 'data3'
