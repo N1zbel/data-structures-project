@@ -18,6 +18,22 @@ class Stack:
         """Конструктор класса Stack"""
         self.top = None
 
+    def __iter__(self):
+        current = self.top
+        while current is not None:
+            yield current.data
+            current = current.next_node
+
+    def __str__(self):
+
+        new_stack = []
+        if self.top is None:
+            return "стек пуст"
+        else:
+            for item in self:
+                new_stack.append(item)
+            return 'стек ' + '- ' + ', '.join(new_stack)
+
     def push(self, data):
         """
         Метод для добавления элемента на вершину стека
@@ -31,7 +47,6 @@ class Stack:
             new_node.next_node = self.top
             self.top = new_node
 
-
     def pop(self):
         """
         Метод для удаления элемента с вершины стека и его возвращения
@@ -39,8 +54,9 @@ class Stack:
         :return: данные удаленного элемента
         """
 
-
         if self.top:
             data = self.top.data
             self.top = self.top.next_node
             return data
+        else:
+            raise Exception("Stack is empty")

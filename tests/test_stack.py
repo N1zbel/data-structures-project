@@ -17,3 +17,10 @@ def test_pop():
     stack.push('data2')
     stack.push('data3')
     assert stack.pop() == 'data3'
+
+def test_str():
+    stack = Stack()
+    stack.push('data1')
+    stack.push('data2')
+    stack.push('data3')
+    assert stack.__str__() == 'стек - data3, data2, data1'
