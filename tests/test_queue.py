@@ -11,3 +11,12 @@ class QueueTestCase(unittest.TestCase):
         self.queue.enqueue('data2')
         self.queue.enqueue('data3')
         self.assertEqual(str(self.queue), "data1\ndata2\ndata3")
+
+    def test_dequeue(self):
+        self.queue = Queue()
+        self.queue.enqueue('data1')
+        self.queue.enqueue('data2')
+        self.queue.enqueue('data3')
+        self.assertEqual(self.queue.dequeue(), 'data1')
+        self.assertEqual(self.queue.dequeue(), 'data2')
+        self.assertEqual(self.queue.dequeue(), 'data3')
